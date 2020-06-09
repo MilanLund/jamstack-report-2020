@@ -1,6 +1,4 @@
-(() => {
-    const bars = document.querySelectorAll('.bar');
-    
+(() => {    
     const calculateRelativeChartLineWidth = (bar, width) => {
         const chartLines = bar.querySelectorAll('.bar__chart');
         const sizes = Array.from(chartLines).map((chartLine) => {
@@ -25,6 +23,8 @@
     };
     
     const initBar = (bar) => {
+        if (!bar) return;
+        
         const chartLines = bar.querySelectorAll('.bar__chart');
 
         for (let i = 0; i < chartLines.length; i++) {
