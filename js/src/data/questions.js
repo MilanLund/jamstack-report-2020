@@ -1,4 +1,4 @@
-const questions = [{
+window.questions = [{
         id: 1,
         type: 'single',
         text: 'Are you familiar with the definition of Jamstack stated above?',
