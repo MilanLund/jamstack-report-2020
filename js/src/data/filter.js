@@ -62,9 +62,6 @@ window.filter = {
             id: 0,
             text: 'All'
         }, {
-            id: 1,
-            text: 'Freelancer'
-        }, {
             id: 2,
             text: '2 - 9'
         }, {

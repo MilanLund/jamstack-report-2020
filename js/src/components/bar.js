@@ -1,4 +1,4 @@
-(() => {    
+window.initBar = (() => {    
     const calculateRelativeChartLineWidth = (bar, width) => {
         const chartLines = bar.querySelectorAll('.bar__chart');
         const sizes = Array.from(chartLines).map((chartLine) => {
@@ -22,7 +22,7 @@
         }, delay * multiplier);
     };
     
-    const initBar = (bar) => {
+    return (bar) => {
         if (!bar) return;
         
         const chartLines = bar.querySelectorAll('.bar__chart');
@@ -31,16 +31,36 @@
             setChartLineWidth(bar, chartLines[i], i);
         }
     };
-
-    const initPageBars = () => {
-        const bars = document.querySelectorAll('.bar');
-
-        for (let i = 0; i < bars.length; i++) {
-            initBar(bars[i]);
-        }
-    };
-
-    // initPageBars();
-
-    initBar(document.querySelector('[data-item="q7"]'));
 })();
+
+window.getHtmlBar = (state) => {
+    return `
+        <div class="bar">
+            <div class="bar__column bar__column--title">
+                ${state.map((item) => {
+                    return `<div class="bar__line bar__line--title">${item.text}</div>`;
+                }).join('')}
+            </div>
+            <div class="bar__column bar__column--chart">
+                <div class="bar__grid">
+                    <div class="bar__grid-line"></div>
+                    <div class="bar__grid-line"></div>
+                    <div class="bar__grid-line"></div>
+                    <div class="bar__grid-line"></div>
+                    <div class="bar__grid-line"></div>
+                    <div class="bar__grid-line"></div>
+                    <div class="bar__grid-line"></div>
+                    <div class="bar__grid-line"></div>
+                    <div class="bar__grid-line"></div>
+                </div>
+                ${state.map((item) => {
+                    return `
+                        <div class="bar__line bar__line--chart">
+                            <div class="bar__chart bar__chart--${item.color}" data-value="${item.percentage}"></div>
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        </div>
+    `;
+}

@@ -5,19 +5,24 @@ window.questions = [{
         description: 'Jamstack is a modern web development architecture based on pre-generated HTML markup where dynamic and interactive functionalities are handled by JavaScript, and server-side operations are abstracted into reusable APIs. "JAM" == "JavaScript, APIs, Markup"',
         answers: [{
             id: 1,
-            text: 'Definitely yes'
+            text: 'Definitely yes',
+            color: 'dark-orange'
         }, {
             id: 2,
-            text: 'Rather yes'
+            text: 'Rather yes',
+            color: 'light-orange'
         }, {
             id: 3,
-            text: 'Neither yes nor no'
+            text: 'Neither yes nor no',
+            color: 'yellow'
         }, {
             id: 4,
-            text: 'Rather no'
+            text: 'Rather no',
+            color: 'light-grey'
         }, {
             id: 5,
-            text: 'Definitely no'
+            text: 'Definitely no',
+            color: 'dark-grey'
         }]
     }, {
         id: 2,
@@ -25,19 +30,24 @@ window.questions = [{
         text: 'How long have you been working with Jamstack?',
         answers: [{
             id: 1,
-            text: 'Never'
+            text: 'Never',
+            color: 'grey-1'
         }, {
             id: 2,
-            text: 'Less than a year'
+            text: 'Less than a year',
+            color: 'orange-4'
         }, {
             id: 3,
-            text: '1 year'
+            text: '1 year',
+            color: 'orange-3'
         }, {
             id: 4,
-            text: '2 years'
+            text: '2 years',
+            color: 'orange-2'
         }, {
             id: 5,
-            text: '3+ years'
+            text: '3+ years',
+            color: 'orange-1'
         }]
     }, {
         id: 3,
@@ -73,98 +83,96 @@ window.questions = [{
         text: 'Think of the most complex project you’ve built with Jamstack. Try to describe its complexity: choose one item in each line:',
         description: 'N = 339, developers who work with Jamstack',
         note: '1. the most likely reason to 7. the least likely reason',
-        answers: [
-            [{
+        answers: [{
+            id: 1,
+            text: 'Unique users served',
+            options: [{
                 id: 1,
-                text: 'Unique users served',
-                options: [{
-                    id: 1,
-                    text: '10s'
-                }, {
-                    id: 2,
-                    text: '100s'
-                }, {
-                    id: 3,
-                    text: '1000s'
-                }, {
-                    id: 4,
-                    text: '100000s'
-                }, {
-                    id: 5,
-                    text: '1000000s'
-                }]
+                text: '10s'
             }, {
                 id: 2,
-                text: 'Channels served',
-                options: [{
-                    id: 1,
-                    text: '1'
-                }, {
-                    id: 2,
-                    text: '2 - 3'
-                }, {
-                    id: 3,
-                    text: '> 3'
-                }]
+                text: '100s'
             }, {
                 id: 3,
-                text: 'Services involved (integrations / microservices / serverless functions)',
-                options: [{
-                    id: 1,
-                    text: '0'
-                }, {
-                    id: 2,
-                    text: '1'
-                }, {
-                    id: 3,
-                    text: '2 to 5'
-                }, {
-                    id: 4,
-                    text: '> 5'
-                }, {
-                    id: 5,
-                    text: '> 10'
-                }]
+                text: '1000s'
             }, {
                 id: 4,
-                text: 'Engineers involved',
-                options: [{
-                    id: 1,
-                    text: '1'
-                }, {
-                    id: 2,
-                    text: '1 to 4'
-                }, {
-                    id: 3,
-                    text: '5 to 10'
-                }, {
-                    id: 4,
-                    text: '> 10'
-                }, {
-                    id: 5,
-                    text: '> 20'
-                }]
+                text: '100000s'
             }, {
                 id: 5,
-                text: 'Level of dynamicity',
-                options: [{
-                    id: 1,
-                    text: 'None e.g., a blog or a landing page'
-                }, {
-                    id: 2,
-                    text: 'Up to 5%'
-                }, {
-                    id: 3,
-                    text: 'Up to 10%'
-                }, {
-                    id: 4,
-                    text: 'Up to 25%'
-                }, {
-                    id: 5,
-                    text: 'More than 25%'
-                }]
+                text: '1000000s'
             }]
-        ]
+        }, {
+            id: 2,
+            text: 'Channels served',
+            options: [{
+                id: 1,
+                text: '1'
+            }, {
+                id: 2,
+                text: '2 - 3'
+            }, {
+                id: 3,
+                text: '> 3'
+            }]
+        }, {
+            id: 3,
+            text: 'Services involved (integrations / microservices / serverless functions)',
+            options: [{
+                id: 1,
+                text: '0'
+            }, {
+                id: 2,
+                text: '1'
+            }, {
+                id: 3,
+                text: '2 to 5'
+            }, {
+                id: 4,
+                text: '> 5'
+            }, {
+                id: 5,
+                text: '> 10'
+            }]
+        }, {
+            id: 4,
+            text: 'Engineers involved',
+            options: [{
+                id: 1,
+                text: '1'
+            }, {
+                id: 2,
+                text: '1 to 4'
+            }, {
+                id: 3,
+                text: '5 to 10'
+            }, {
+                id: 4,
+                text: '> 10'
+            }, {
+                id: 5,
+                text: '> 20'
+            }]
+        }, {
+            id: 5,
+            text: 'Level of dynamicity',
+            options: [{
+                id: 1,
+                text: 'None e.g., a blog or a landing page'
+            }, {
+                id: 2,
+                text: 'Up to 5%'
+            }, {
+                id: 3,
+                text: 'Up to 10%'
+            }, {
+                id: 4,
+                text: 'Up to 25%'
+            }, {
+                id: 5,
+                text: 'More than 25%'
+            }]
+        }]
     }, {
         id: 5,
         type: 'multiple',
