@@ -16,6 +16,16 @@ require('./bar.js');
             case 4:
                 state = window.getByOptionsState();
                 break;
+            case 5:
+            case 7:
+            case 8:
+            case 9:
+                state = window.getByMultipleState();
+                break;
+            case 12:
+            case 14:
+                state = window.getBySingleState();
+                break;
             default:
         }
 
@@ -30,6 +40,12 @@ require('./bar.js');
                 html = window.getHtmlLine(state);
                 break;
             case 4:
+            case 5:
+            case 7:
+            case 8:
+            case 9:
+            case 12:
+            case 14:
                 html = window.getHtmlBar(state);
                 break;
             default:
@@ -44,6 +60,12 @@ require('./bar.js');
                 window.initLine(document.querySelector('.line--lines'));
                 break;
             case 4:
+            case 5:
+            case 7:
+            case 8:
+            case 9:
+            case 12:
+            case 14:
                 window.initBar(document.querySelector('.bar'));
                 break;
             default:

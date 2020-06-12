@@ -1,3 +1,69 @@
+window.getBySingleState = () => {
+    const state = window.questions.filter((item) => item.id === window.stateSteps.active)[0].answers;
+
+    state.map((item) => {
+        item.value = 0;
+        item.percentage = 0;
+        return item;
+    });
+
+    let answers;
+    if (window.stateSteps.active === 14) {
+        answers = window.stateAnswers;
+    } else {
+        answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+    }
+
+    for (let i = 0; i < answers.length; i++) {
+        const option = answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer;
+        for (let k = 0; k < state.length; k++) {
+            if (state[k].id === option) {
+                state[k].value += 1;
+            }
+        };
+    }
+
+    for (let k = 0; k < state.length; k++) {
+        state[k].percentage = Math.round(state[k].value / answers.length * 100);
+    }
+
+    state.sort((a, b) => (b.percentage - a.percentage));
+
+    return state;
+};
+
+window.getByMultipleState = () => {
+    const state = window.questions.filter((item) => item.id === window.stateSteps.active)[0].answers;
+
+    state.map((item) => {
+        item.value = 0;
+        item.percentage = 0;
+        return item;
+    });
+
+    const answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+
+    for (let i = 0; i < answers.length; i++) {
+        const options = answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer;
+        console.log(options)
+        for (let k = 0; k < state.length; k++) {
+            for (let j = 0; j < state.length; j++) {
+                if (state[k].id === options[j]) {
+                    state[k].value += 1;
+                }
+            }
+        };
+    }
+
+    for (let k = 0; k < state.length; k++) {
+        state[k].percentage = Math.round(state[k].value / answers.length * 100);
+    }
+
+    state.sort((a, b) => (b.percentage - a.percentage));
+
+    return state;
+};
+
 window.getByOptionsState = () => {
     const getAllOptionsValue = (options) => {
         let totalValue = 0;

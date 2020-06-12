@@ -180,34 +180,44 @@ window.questions = [{
         description: 'N = 339, developers who work with Jamstack',
         answers: [{
             id: 1,
-            text: 'AMP'
+            text: 'AMP',
+            color: 'orange'
         }, {
             id: 2,
-            text: 'PWA'
+            text: 'PWA',
+            color: 'orange'
         }, {
             id: 3,
-            text: 'Serverless functions'
+            text: 'Serverless functions',
+            color: 'orange'
         }, {
             id: 4,
-            text: 'GraphQL'
+            text: 'GraphQL',
+            color: 'orange'
         }, {
             id: 5,
-            text: 'gRPC'
+            text: 'gRPC',
+            color: 'orange'
         }, {
             id: 6,
-            text: 'Websockets'
+            text: 'Websockets',
+            color: 'orange'
         }, {
             id: 7,
-            text: 'Webhooks'
+            text: 'Webhooks',
+            color: 'orange'
         }, {
             id: 8,
-            text: 'Containers'
+            text: 'Containers',
+            color: 'orange'
         }, {
             id: 9,
-            text: 'Identity provider'
+            text: 'Identity provider',
+            color: 'orange'
         }, {
             id: 10,
-            text: 'None of them'
+            text: 'None of them',
+            color: 'dark-grey'
         }]
     }, {
         id: 6,
