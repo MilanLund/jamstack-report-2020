@@ -10,9 +10,13 @@ window.getBySingleState = () => {
     let answers;
     if (window.stateSteps.active === 14) {
         answers = window.stateAnswers;
+        window.stateSteps.justJamstack = false;
     } else {
         answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+        window.stateSteps.justJamstack = true;
     }
+
+    window.stateSteps.n = answers.length;
 
     for (let i = 0; i < answers.length; i++) {
         const option = answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer;
@@ -40,27 +44,64 @@ window.getByMultipleState = () => {
         item.percentage = 0;
         return item;
     });
+    
+    let answers;
 
-    const answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+    if (window.stateSteps.active === 13) {
+      answers = window.stateAnswers;
+    } else {
+      answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+    }
+
+    window.stateSteps.justJamstack = true;
+    window.stateSteps.n = answers.length;
 
     for (let i = 0; i < answers.length; i++) {
         const options = answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer;
-        console.log(options)
-        for (let k = 0; k < state.length; k++) {
-            for (let j = 0; j < state.length; j++) {
+        
+        for (let j = 0; j < options.length; j++) {
+          for (let k = 0; k < state.length; k++) {
                 if (state[k].id === options[j]) {
                     state[k].value += 1;
                 }
+
             }
         };
     }
-
+    
     for (let k = 0; k < state.length; k++) {
         state[k].percentage = Math.round(state[k].value / answers.length * 100);
     }
 
     state.sort((a, b) => (b.percentage - a.percentage));
 
+    const moveToTheEnd = (arr, id) => {
+      arr.map((elem, index) => {
+        if(elem.id === id){
+          arr.splice(index, 1);
+          arr.push(elem);
+        }
+      })
+      return arr;
+    }
+
+    if (window.stateSteps.active === 13) {
+      moveToTheEnd(state, 14);
+      moveToTheEnd(state, 15);
+    }
+
+    if (window.stateSteps.active === 6) {
+      moveToTheEnd(state, 20);
+    }
+
+    if (window.stateSteps.active === 10) {
+      moveToTheEnd(state, 18);
+    }
+
+    if (window.stateSteps.active === 11) {
+      moveToTheEnd(state, 13);
+    }
+    
     return state;
 };
 
@@ -86,6 +127,8 @@ window.getByOptionsState = () => {
     }
 
     const answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+    window.stateSteps.justJamstack = true;
+    window.stateSteps.n = answers.length;
 
     for (let i = 0; i < answers.length; i++) {
         const options = answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer;
@@ -95,8 +138,8 @@ window.getByOptionsState = () => {
                     if (state[k].options[l].id === options[k].option) {
                         state[k].options[l].value += 1;
                     }
-            };
-        };
+            }
+        }
     }
 
     const finalState = [{
@@ -126,15 +169,32 @@ window.getByOptionsState = () => {
 
 window.getByOrderState = () => {
     const state = window.questions.filter((item) => item.id === window.stateSteps.active)[0].answers.map((item) => {
-        item.value = 0;
         item.percentage = 0;
         return item;
     });
+
     const answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+    window.stateSteps.justJamstack = true;
+    window.stateSteps.n = answers.length;
 
-    for (let i = 0; i < answers.length; i++) {
+    for (let j = 0; j < state.length; j++) {
+      const counter = [0, 0, 0];
+      for (let i = 0; i < answers.length; i++) {
+        for (let k = 0; k < counter.length; k++) {
+          if (answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer[k].text === state[j].text) {
+            counter[k] +=1;
+          }
+        }
+      }
 
+      for(let x = 0; x < counter.length; x++) {
+        state[j].percentage += (counter[x] / answers.length) * 100
+      }
+
+      state[j].percentage = Math.round(state[j].percentage);
     }
+
+    state.sort((a, b) => (b.percentage - a.percentage));
 
     return state;
 };
@@ -147,6 +207,8 @@ window.getByAgeState = () => {
         item.percentage = 0;
         return item;
     });
+    window.stateSteps.justJamstack = false;
+    window.stateSteps.n = window.stateAnswers.length;
 
     if (window.stateSteps.active === 2) {
         answers.reverse();
@@ -193,11 +255,6 @@ window.getByAgeState = () => {
             state[i].answers[j].percentage = Math.round(state[i].answers[j].value / totalValue * 100);
             totalPercentage += state[i].answers[j].percentage;
         }
-        /*
-        let remainingPercentage = 0;
-        remainingPercentage = 100 - totalPercentage;
-        state[i].answers[state[i].answers.length - 1].percentage += remainingPercentage;
-        */
     }
 
     return state;

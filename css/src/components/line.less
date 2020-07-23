@@ -59,7 +59,7 @@
     &__chart-title {
         position: relative;
         display: block;
-        transform: rotate(-50deg);
+        transform: rotate(-80deg);
         transform-origin: bottom left;
         font-weight: 700;
         font-size: 1.25em;
@@ -69,6 +69,10 @@
         width: 1000px;
         opacity: 0;
         transition: 1s ease-in-out opacity;
+
+        @media screen and (min-width: 1024px) {
+            transform: rotate(-50deg);
+        }
     }
 
 	&__chart {

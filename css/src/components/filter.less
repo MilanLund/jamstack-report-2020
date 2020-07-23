@@ -1,0 +1,71 @@
+.filter {
+  color: #231F20;
+  padding: 32px 32px 0;
+  margin: 0 0 64px;
+  border: 1px solid #D3D2D2;
+  border-radius: 40px 40px 40px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1001;
+  background-color: #fff;
+
+
+  &__heading {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 0 32px;
+    display: block;
+    width: 100%;
+    line-height: 1em;
+    text-transform: none;
+  }
+
+  &__item {
+    width: 100%;
+    max-width: 264px;
+    padding: 0 0 28px;
+
+    @media screen and (min-width: 768px) {
+      padding: 0 0 40px;
+    }
+  }
+
+  &__label {
+    font-size: 12px;
+    padding: 0 0 8px;
+    display: block;
+    line-height: 1em;
+  }
+
+  &__select {
+    width: 100%;
+    font-family: "GT-Walsheim", Arial, Helvetica, sans-serif;
+  }
+
+  &__reset {
+    color: #F05A22;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+    padding: 2px 0 2px 28px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGRlZnM+PHN0eWxlPi5hLC5je2ZpbGw6bm9uZTt9LmJ7Y2xpcC1wYXRoOnVybCgjYSk7fS5je3N0cm9rZTojZjA1YTIyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6MnB4O308L3N0eWxlPjxjbGlwUGF0aCBpZD0iYSI+PHJlY3QgY2xhc3M9ImEiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEyIDEyKSI+PGcgY2xhc3M9ImIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMiAtMTIpIj48Y2lyY2xlIGNsYXNzPSJjIiBjeD0iMTEiIGN5PSIxMSIgcj0iMTEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMSkiLz48bGluZSBjbGFzcz0iYyIgeTE9IjkuOSIgeDI9IjkuOCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNy4xIDcuMSkiLz48bGluZSBjbGFzcz0iYyIgeDI9IjkuOCIgeTI9IjkuOSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNy4xIDcpIi8+PC9nPjwvZz48L3N2Zz4=");
+    margin-top: 0;
+    display: block;
+    line-height: 1em;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    @media screen and (min-width: 640px) {
+      margin-top: 32px;
+    }
+  }
+
+}

@@ -3,11 +3,22 @@ window.initLine = (() => {
         const delay = 200;
         const lineItems = chartLine.querySelectorAll('.line__chart');
 
+        let totalValue = 0;
+        for(let i = 0; i < lineItems.length; i++) {
+            totalValue += parseInt(lineItems[i].getAttribute('data-value'));
+        }
+        const rest = 100 - totalValue;
+
         setTimeout(() => {
             for(let i = 0; i < lineItems.length; i++) {
-                let width = lineItems[i].getAttribute('data-value');
+                let width = parseInt(lineItems[i].getAttribute('data-value'));
+
+                if (i === (lineItems.length - 1)) {
+                    width += rest;
+                }
+
                 lineItems[i].style.width = `${width}%`;
-                lineItems[i].classList.add('line__chart--rendered')
+                lineItems[i].classList.add('line__chart--rendered');
             }
         }, delay * multiplier);
     };

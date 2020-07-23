@@ -1,15 +1,24 @@
+// Selectr fix for mobile
+Object.defineProperty(Selectr.prototype, 'mobileDevice', {
+    get() { return false; },
+    set() {},
+    enumerable: true,
+    configurable: true
+});
+
 (() => {
     const wrapper = document.querySelector('.filter');
     if (!window.filter && !wrapper) return;
 
     const eventFilterUpdated = new Event('filterUpdated');
     const eventStateAnswersUpdated = new Event('stateAnswersUpdated');
+    const selectrSelects = [];
 
     const createSelectHtml = (property) => {
         const data = window.filter[property];
-        return `<div>
-                    <label for="${property}">${data.label}</label>
-                    <select id="${property}">
+        return `<div class="filter__item">
+                    <label for="${property}" class="filter__label">${data.label}</label>
+                    <select id="${property}" class="filter__select">
                         ${data.options.map((item) => {
                             return `<option value="${item.id}">${item.text}</option>`;
                         }).join('')}
@@ -18,14 +27,15 @@
     };
 
     const createResetHtml = () => {
-        return `<div>
-                    <span id="resetFilter">Reset all filters</span>
+        return `<div class="filter__item">
+                    <a href="#" id="resetFilter" class="filter__reset">Reset all filters</a>
                 </div>`;
     };
 
 
     const renderFilter = () => {
         let html = '';
+        html += '<h2 class="filter__heading">Filter respondents</h2>'
         html += createSelectHtml('country');
         html += createSelectHtml('gender');
         html += createSelectHtml('age');
@@ -34,13 +44,19 @@
         html += createResetHtml();
 
         wrapper.innerHTML = html;
+
+        const selects = wrapper.querySelectorAll('select[id]');
+
+        if (Selectr) {
+            for (let i = 0; i < selects.length; i++) {
+                selectrSelects.push(new Selectr(selects[i], { searchable: false }));
+            }
+        }
     };
 
     const resetFilter = () => {
-        const selects = wrapper.querySelectorAll('select[id]');
-
-        for (let i = 0; i < selects.length; i++) {
-            selects[i].value = 0;
+        for (let i = 0; i < selectrSelects.length; i++) {
+            selectrSelects[i].setValue(0);
         }
     };
 

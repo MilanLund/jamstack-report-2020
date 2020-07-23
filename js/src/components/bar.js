@@ -21,6 +21,16 @@ window.initBar = (() => {
             chartLine.style.width = `${width}%`;
         }, delay * multiplier);
     };
+
+    const setLinesHeight = (bar) => {
+      const titles = bar.querySelectorAll('.bar__line--title');
+      const charts = bar.querySelectorAll('.bar__line--chart');
+
+      for (let i = 0; i < titles.length; i++) {
+        const height = titles[i].offsetHeight;
+        charts[i].style.height = `${height}px`;
+      }
+    };
     
     return (bar) => {
         if (!bar) return;
@@ -30,6 +40,8 @@ window.initBar = (() => {
         for (let i = 0; i < chartLines.length; i++) {
             setChartLineWidth(bar, chartLines[i], i);
         }
+
+        setLinesHeight(bar);
     };
 })();
 

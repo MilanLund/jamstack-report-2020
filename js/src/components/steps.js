@@ -4,31 +4,36 @@
 
     const eventStepUpdated = new Event('stepUpdated');
     const eventChange = new Event('change', { bubbles: true });
+    let selectrSelect;
 
     const createSelectHtml = () => {
-        return `<div>
-                    <label for="selectQuestion">Select question</label>
-                    <select id="selectQuestion">
+        return `<div class="steps__item">
+                    <label class="steps__label" for="selectQuestion">Select question</label>
+                    <select class="steps__select" id="selectQuestion">
                         ${window.questions.map((item) => {
-                            return `<option value="${item.id}">${item.id} &ndash; ${item.text}</option>`;
+                            return `<option value="${item.id}">${item.id} &ndash; ${item.selectText}</option>`;
                         }).join('')}
                     </select>
                 </div>`;
     };
 
     const createNextPrevHtml = () => {
-        return `<div>
-                    <span id="prevQuestion">Previous</span>
-                    <span id="nextQuestion">Next</span>
+        return `<div class="steps__links">
+                    <a href="#" class="steps__link steps__link--prev" id="prevQuestion">Previous</a>
+                    <a href="#" class="steps__link steps__link--next" id="nextQuestion">Next</a>
                 </div>`;
     };
 
     const renderSteps = () => {
         let html = '';
+        html += '<h2 class="steps__heading">Select question</h2>'
         html += createSelectHtml();
         html += createNextPrevHtml();
 
         wrapper.innerHTML = html;
+
+        const select = wrapper.querySelector('.steps select[id]');
+        selectrSelect = new Selectr(select, { searchable: false });
     };
 
     const getStepsState = () => {
@@ -50,6 +55,7 @@
 
     window.addEventListener('click', (e) => {
         if (e.target && (e.target.matches('#prevQuestion') || e.target.matches('#nextQuestion'))) {
+            e.preventDefault();
             let direction = 1;
             if (e.target.matches('#prevQuestion')) {
                 direction = -1;
@@ -64,7 +70,7 @@
                 index = 1;
             }
 
-            select.value = index;
+            selectrSelect.setValue(index);
             select.dispatchEvent(eventChange);
         }
     });
