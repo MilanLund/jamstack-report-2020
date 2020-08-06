@@ -48,9 +48,9 @@ Object.defineProperty(Selectr.prototype, 'mobileDevice', {
         const selects = wrapper.querySelectorAll('select[id]');
 
         if (Selectr) {
-            for (let i = 0; i < selects.length; i++) {
-                selectrSelects.push(new Selectr(selects[i], { searchable: false }));
-            }
+          for (let i = 0; i < selects.length; i++) {
+              selectrSelects.push(new Selectr(selects[i], { searchable: false }));
+          }
         }
     };
 

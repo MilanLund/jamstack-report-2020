@@ -538,19 +538,19 @@ window.questions = [{
             color: 'dark-grey'
         }, {
             id: 6,
-            text: 'Useful, needed',
-            color: 'dark-grey'
-        }, {
-            id: 7,
             text: 'Not reliable, some errors',
             color: 'dark-grey'
         }, {
-            id: 8,
+            id: 7,
             text: 'Integrating with other systems',
             color: 'dark-grey'
         }, {
-            id: 9,
+            id: 8,
             text: 'Not flexible, unique, specific',
+            color: 'dark-grey'
+        }, {
+            id: 9,
+            text: 'Needs upgrades',
             color: 'dark-grey'
         }, {
             id: 10,
