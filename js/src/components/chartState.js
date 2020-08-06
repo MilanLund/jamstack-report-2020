@@ -49,11 +49,12 @@ window.getByMultipleState = () => {
 
     if (window.stateSteps.active === 13) {
       answers = window.stateAnswers;
+      window.stateSteps.justJamstack = false;
     } else {
       answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+      window.stateSteps.justJamstack = true;
     }
 
-    window.stateSteps.justJamstack = true;
     window.stateSteps.n = answers.length;
 
     for (let i = 0; i < answers.length; i++) {
@@ -86,20 +87,24 @@ window.getByMultipleState = () => {
     }
 
     if (window.stateSteps.active === 13) {
+      moveToTheEnd(state, 13);
       moveToTheEnd(state, 14);
       moveToTheEnd(state, 15);
     }
 
     if (window.stateSteps.active === 6) {
       moveToTheEnd(state, 20);
+      moveToTheEnd(state, 19);
     }
 
     if (window.stateSteps.active === 10) {
       moveToTheEnd(state, 18);
+      moveToTheEnd(state, 17);
     }
 
     if (window.stateSteps.active === 11) {
       moveToTheEnd(state, 13);
+      moveToTheEnd(state, 12);
     }
     
     return state;

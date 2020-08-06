@@ -101,7 +101,7 @@
             obj.answers.push(getAnswerMultiple(8, data[i], 'q8_answer_id_', 14));
             obj.answers.push(getAnswerMultiple(9, data[i], 'q9_answer_id_', 10));
             obj.answers.push(getAnswerMultipleSpecific(10, data[i], 'q10_answer_id_', 4)); // Temp
-            obj.answers.push(getAnswerMultipleSpecific(11, data[i], 'q11_answer_id_', 1)); // Temp
+            obj.answers.push(getAnswerMultipleSpecific(11, data[i], 'q11_answer_id_', 2)); // Temp
             obj.answers.push(getAnswerSingle(12, data[i].q12_answer_id));
             obj.answers.push(getAnswerMultipleSpecific(13, data[i], 'q13_answer_id_', 4)); // Temp
             obj.answers.push(getAnswerSingle(14, data[i].q14_answer_id));
