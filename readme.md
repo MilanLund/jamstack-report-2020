@@ -2,6 +2,10 @@
 
 This repository is used for this page: http://kontent.ai/resources/state-of-jamstack-2020-data-deep-dive
 
+## Building assets
+
+JS and CSS are build with use of Prepros v7.3.x https://prepros.io/
+
 ## How to move code to the kontent.ai repo
 
 ### In the folowing files follow comments for the updates
