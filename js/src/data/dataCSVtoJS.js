@@ -111,7 +111,8 @@
         return resultData;
     };
 
-    Papa.parse('./data/data.csv', {
+    Papa.parse('./data/data.csv', { // path for localhost
+    //Papa.parse('/jamstack-vizualization/data/data.csv', { // path for kontent.ai
         download: true,
         delimiter: ',',
         header: true,

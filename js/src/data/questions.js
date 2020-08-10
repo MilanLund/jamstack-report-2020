@@ -92,7 +92,8 @@ window.questions = [{
         selectText: 'Think of the most complex project you&#x2019;ve built with the Jamstack. Try to describe its complexity.',
         text: 'Think of the most complex project you&#x2019;ve built with Jamstack. Try to describe its complexity: choose one item in each line:',
         description: '1. the most likely reason to 7. the least likely reason',
-        img: './data/q4.jpg',
+        img: './data/q4.jpg', // path for localhost
+        //img: '/jamstack-vizualization/data/q4.jpg', // path for kontent.ai
         answers: [{
             id: 1,
             text: 'Unique users served',
