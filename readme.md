@@ -20,7 +20,6 @@ Before you move thing over to the kontent.ai repo, you need to update couple of 
 
 - data\answers.js -> static\jamstack-vizualization\data\answers.js
 - data\data.csv -> static\jamstack-vizualization\data\data.csv
-- data\q4.jpg -> static\jamstack-vizualization\data\q4.jpg
 - css\app.min.css -> static\jamstack-vizualization\css\app.min.css
 - js\app.min.js -> static\jamstack-vizualization\js\app.min.js
 - js\papaparse.js -> static\jamstack-vizualization\js\papaparse.js

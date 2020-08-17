@@ -79,7 +79,7 @@ window.getHtmlLine = (state, preventLarge) => {
     if (state[0].age && state[0].age.text === 'All') {
       state.shift();
     }
-    console.log(state)
+    //console.log(state)
     html += `
             <div class="line line--lines">
                 <div class="line__column line__column--title${preventLarge ? ' line__column--sizing' : ''}">

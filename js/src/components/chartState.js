@@ -245,6 +245,6 @@ window.getByAgeState = () => {
             totalPercentage += state[i].answers[j].percentage;
         }
     }
-    console.log(state)
+    //console.log(state)
     return state;
 };
