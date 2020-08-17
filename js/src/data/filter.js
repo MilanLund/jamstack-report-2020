@@ -53,7 +53,7 @@ window.filter = {
             text: '55 - 64'
         }, {
             id: 6,
-            text: '65 and more'
+            text: '65 and over'
         }]
     },
     companySize: {

@@ -61,7 +61,11 @@ require('./bar.js');
                 html += window.getHtmlLine(state);
                 break;
             case 3:
+              html += window.getHtmlBar(state);
+                break;
             case 4:
+              html += window.getHtmlLine(state, true);
+              break;
             case 5:
             case 6:
             case 7:
@@ -86,7 +90,11 @@ require('./bar.js');
                 window.initLine(document.querySelector('.line--lines'));
                 break;
             case 3:
+              window.initBar(document.querySelector('.bar'));
+              break;
             case 4:
+              window.initLine(document.querySelector('.line--lines'));
+              break;
             case 5:
             case 6:
             case 7:

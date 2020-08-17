@@ -59,7 +59,7 @@ window.getByMultipleState = () => {
 
     for (let i = 0; i < answers.length; i++) {
         const options = answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer;
-        
+
         for (let j = 0; j < options.length; j++) {
           for (let k = 0; k < state.length; k++) {
                 if (state[k].id === options[j]) {
@@ -111,65 +111,49 @@ window.getByMultipleState = () => {
 };
 
 window.getByOptionsState = () => {
-    const getAllOptionsValue = (options) => {
-        let totalValue = 0;
+  let state = window.questions.filter((item) => item.id === window.stateSteps.active)[0].answers;
 
-        for (let i = 0; i < options.length; i++) {
-            totalValue += options[i].value;
-        }
+  for(let i = 0; i < state.length; i++) {
+    state[i].options.map((item) => {
+      item.value = 0;
+      item.percentage = 0;
+      return item;
+    });
+  }
 
-        return totalValue;
-    };
+  const answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
+  window.stateSteps.justJamstack = true;
+  window.stateSteps.n = answers.length;
 
-    const state = window.questions.filter((item) => item.id === window.stateSteps.active)[0].answers;
+  for (let i = 0; i < answers.length; i++) {
+    const options = answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer;
 
-    for (let i = 0; i < state.length; i++) {
-        state[i].options.map((item) => {
-            item.value = 0;
-            item.percentage = 0;
-            return item;
-        });
-    }
-
-    const answers = window.stateAnswers.filter((item) => item.answers[1].answer !== 1);
-    window.stateSteps.justJamstack = true;
-    window.stateSteps.n = answers.length;
-
-    for (let i = 0; i < answers.length; i++) {
-        const options = answers[i].answers.filter((item) => item.id === window.stateSteps.active)[0].answer;
-        
-        for (let k = 0; k < state.length; k++) {
-            for (let l = 0; l < state[k].options.length; l++) {
-                    if (state[k].options[l].id === options[k].option) {
-                        state[k].options[l].value += 1;
-                    }
+    for (let j = 0; j < options.length; j++) {
+      for (let k = 0; k < state.length; k++) {
+        if (state[k].id === options[j].id) {
+          for (let m = 0; m < state[k].options.length; m++) {
+            if (state[k].options[m].id === options[j].option) {
+              state[k].options[m].value += 1;
             }
+          }
         }
+      }
+    }
+  }
+
+  for (let k = 0; k < state.length; k++) {
+    state[k].answersNum = 0;
+    
+    for (let j = 0; j < state[k].options.length; j++) {
+      state[k].answersNum += state[k].options[j].value;
     }
 
-    const finalState = [{
-        text: 'Hundreds to thousands of unique users served',
-        percentage: Math.round((state[0].options[1].value + state[0].options[2].value) / getAllOptionsValue(state[0].options) * 100),
-        color: 'orange'
-    }, {
-        text: '2–3 channels served',
-        percentage: Math.round(state[1].options[1].value / getAllOptionsValue(state[1].options) * 100),
-        color: 'orange'
-    }, {
-        text: '2–5 services involved',
-        percentage: Math.round(state[2].options[2].value / getAllOptionsValue(state[2].options) * 100),
-        color: 'orange'
-    }, {
-        text: '1–10 engineers involved',
-        percentage: Math.round((state[3].options[1].value + state[3].options[2].value) / getAllOptionsValue(state[3].options) * 100),
-        color: 'orange'
-    }, {
-        text: '5–10 level of dynamicity',
-        percentage: Math.round(state[4].options[2].value / getAllOptionsValue(state[4].options) * 100),
-        color: 'orange'
-    }];
+    for (let j = 0; j < state[k].options.length; j++) {
+      state[k].options[j].percentage = Math.round(state[k].options[j].value / state[k].answersNum * 100);
+    }
+  }
 
-    return finalState;
+  return state;
 };
 
 window.getByOrderState = () => {
@@ -261,6 +245,6 @@ window.getByAgeState = () => {
             totalPercentage += state[i].answers[j].percentage;
         }
     }
-
+    console.log(state)
     return state;
 };

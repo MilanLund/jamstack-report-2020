@@ -13,7 +13,6 @@ JS and CSS are build with use of Prepros v7.3.x https://prepros.io/
 Before you move thing over to the kontent.ai repo, you need to update couple of things - some styling and paths.
 
 - js\src\data\dataCSVtoJS.js
-- js\src\data\questions.js
 - css\src\app.min.less
 - css\src\components\general.less
 

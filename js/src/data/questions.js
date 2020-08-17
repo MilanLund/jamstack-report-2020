@@ -2,7 +2,7 @@ window.questions = [{
         id: 1,
         type: 'single',
         selectText: 'Are you familiar with this definition of the Jamstack?',
-        text: 'Are you familiar with the definition of Jamstack stated above?',
+        text: 'Are you familiar with this definition of the Jamstack?',
         description: 'Jamstack is a modern web development architecture based on pre-generated HTML markup where dynamic and interactive functionalities are handled by JavaScript, and server-side operations are abstracted into reusable APIs. "JAM" == "JavaScript, APIs, Markup"',
         answers: [{
             id: 1,
@@ -29,7 +29,7 @@ window.questions = [{
         id: 2,
         type: 'single',
         selectText: 'How long have you been working with the Jamstack?',
-        text: 'How long have you been working with Jamstack?',
+        text: 'How long have you been working with the Jamstack?',
         answers: [{
             id: 1,
             text: 'Never',
@@ -55,8 +55,8 @@ window.questions = [{
         id: 3,
         type: 'order',
         selectText: 'What are the reasons for choosing the Jamstack to build an app with?',
-        text: 'What are most likely the reasons for choosing Jamstack to build an app with? Put the items in order.',
-        description: '1. the most likely reason to 7. the least likely reason',
+        text: 'What are the reasons for choosing the Jamstack to build an app with?',
+        description: 'From the most likely reason at the top to the least likely reason at the bottom of the list.',
         answers: [{
             id: 1,
             text: 'Security',
@@ -90,105 +90,134 @@ window.questions = [{
         id: 4,
         type: 'lines',
         selectText: 'Think of the most complex project you&#x2019;ve built with the Jamstack. Try to describe its complexity.',
-        text: 'Think of the most complex project you&#x2019;ve built with Jamstack. Try to describe its complexity: choose one item in each line:',
-        description: '1. the most likely reason to 7. the least likely reason',
-        img: './data/q4.jpg', // path for localhost
-        //img: '/jamstack-vizualization/data/q4.jpg', // path for kontent.ai
+        text: 'Think of the most complex project you&#x2019;ve built with the Jamstack. Try to describe its complexity.',
+        description: 'Choose one item in each of the five lines.',
         answers: [{
             id: 1,
             text: 'Unique users served',
             options: [{
                 id: 1,
-                text: '10s'
+                text: '10s',
+                color: 'orange-11'
             }, {
                 id: 2,
-                text: '100s'
+                text: '100s',
+                color: 'orange-12'
             }, {
                 id: 3,
-                text: '1000s'
+                text: '1,000s',
+                color: 'orange-13'
             }, {
                 id: 4,
-                text: '100000s'
+                text: '100,000s',
+                color: 'orange-14'
             }, {
                 id: 5,
-                text: '1000000s'
+                text: '1,000,000s',
+                color: 'orange-15'
             }]
         }, {
             id: 2,
             text: 'Channels served',
             options: [{
                 id: 1,
-                text: '1'
+                text: '1',
+                note: 'e.g., web',
+                color: 'orange-11'
             }, {
                 id: 2,
-                text: '2 - 3'
+                text: '2 - 3',
+                note: 'e.g., web + mobile + social media',
+                color: 'orange-12'
             }, {
                 id: 3,
-                text: '> 3'
+                text: '> 3',
+                note: 'e.g., web, mob, social, chatbot, IoT, AR/VR, digital signage',
+                color: 'orange-13'
             }]
         }, {
             id: 3,
             text: 'Services involved (integrations / microservices / serverless functions)',
             options: [{
                 id: 1,
-                text: '0'
+                text: '0',
+                color: 'orange-11'
             }, {
                 id: 2,
-                text: '1'
+                text: '1',
+                color: 'orange-12'
             }, {
                 id: 3,
-                text: '2 to 5'
+                text: '2 to 5',
+                color: 'orange-13'
             }, {
                 id: 4,
-                text: '> 5'
+                text: '> 5',
+                color: 'orange-14'
             }, {
                 id: 5,
-                text: '> 10'
+                text: '> 10',
+                color: 'orange-15'
             }]
         }, {
             id: 4,
             text: 'Engineers involved',
             options: [{
                 id: 1,
-                text: '1'
+                text: '1',
+                color: 'orange-11'
             }, {
                 id: 2,
-                text: '1 to 4'
+                text: '1 to 4',
+                color: 'orange-12'
             }, {
                 id: 3,
-                text: '5 to 10'
+                text: '5 to 10',
+                color: 'orange-13'
             }, {
                 id: 4,
-                text: '> 10'
+                text: '> 10',
+                color: 'orange-14'
             }, {
                 id: 5,
-                text: '> 20'
+                text: '> 20',
+                color: 'orange-15'
             }]
         }, {
             id: 5,
             text: 'Level of dynamicity',
             options: [{
                 id: 1,
-                text: 'None e.g., a blog or a landing page'
+                text: 'None',
+                note: 'e.g., a blog or a landing page',
+                color: 'orange-11'
             }, {
                 id: 2,
-                text: 'Up to 5%'
+                text: 'Up to 5%',
+                note: 'e.g., a microsite',
+                color: 'orange-12'
             }, {
                 id: 3,
-                text: 'Up to 10%'
+                text: 'Up to 10%',
+                note: 'e.g., a corporate website',
+                color: 'orange-13'
             }, {
                 id: 4,
-                text: 'Up to 25%'
+                text: 'Up to 25%',
+                note: 'e.g., an e-shop',
+                color: 'orange-14'
             }, {
                 id: 5,
-                text: 'More than 25%'
+                text: 'More than 25%',
+                note: 'e.g., a personalized website/portal',
+                color: 'orange-15'
             }]
         }]
     }, {
         id: 5,
         type: 'multiple',
         selectText: 'Select the technologies you’ve used in a Jamstack project.',
-        text: 'Please, select the technologies you’ve ever used in a Jamstack project.',
+        text: 'Select the technologies you’ve used in a Jamstack project.',
         answers: [{
             id: 1,
             text: 'AMP',
@@ -234,7 +263,7 @@ window.questions = [{
         id: 6,
         type: 'multiple',
         selectText: 'Where do the biggest challenges in adopting the Jamstack architecture lie?',
-        text: 'Considering your past experience, where do the biggest challenges in adopting Jamstack architecture lie? Try to think about all three aspects - JavaScript, APIs, Markup.',
+        text: 'Where do the biggest challenges in adopting the Jamstack architecture lie?',
         description: 'Categorized spontaneous responses, more than one answer possible.',
         answers: [{
             id: 1,
@@ -589,7 +618,7 @@ window.questions = [{
         id: 13,
         type: 'multiple',
         selectText: 'What do you think could increase the Jamstack adoption? Name one thing.',
-        text: 'What do you think could increase Jamstack adoption (name one thing)?',
+        text: 'What do you think could increase the Jamstack adoption? Name one thing.',
         description: 'Despite the instruction "name one thing", some respondents gave a more comprehensive answer to this question and shared several ideas. Thus the sum of the percentages of all answers in the graph is not 100 %.',
         answers: [{
             id: 1,
@@ -644,7 +673,7 @@ window.questions = [{
         id: 14,
         type: 'single',
         selectText: 'What is your favorite flavor of jam?',
-        text: 'What is your favorite flavor of JAM?',
+        text: 'What is your favorite flavor of jam?',
         answers: [{
             id: 1,
             text: 'Apricot'
